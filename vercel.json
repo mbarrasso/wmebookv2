@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "github": {
+    "silent": true
+  },
+  "buildCommand": "cd wealth-management-ebook && npm install && npm run build",
+  "outputDirectory": "wealth-management-ebook/build",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+} 
