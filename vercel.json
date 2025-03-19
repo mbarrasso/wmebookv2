@@ -1,14 +1,17 @@
 {
   "version": 2,
   "github": {
-    "silent": true
+    "silent": true,
+    "autoAlias": true
   },
   "buildCommand": "cd wealth-management-ebook && npm install && npm run build",
   "outputDirectory": "wealth-management-ebook/build",
+  "framework": "create-react-app",
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "public": true
 } 
