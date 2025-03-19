@@ -62,46 +62,6 @@ const ConclusionPage = () => (
       </div>
     </div>
     
-    <div className="bg-blue-50 p-6 rounded-lg mb-8">
-      <h3 className="text-xl font-bold text-blue-800 mb-4 text-center">Is Professional Wealth Management Right for You?</h3>
-      
-      <p className="mb-4">While this e-book has made the case for the value of professional wealth management, it's not necessarily the right choice for everyone. Here are some considerations to help you determine if working with a wealth advisor might be beneficial for your situation:</p>
-      
-      <div className="mb-4">
-        <div className="bg-white p-4 rounded-md shadow-sm mx-auto max-w-xl">
-          <h4 className="font-bold text-blue-700 mb-2 text-center">You Might Benefit from a Wealth Manager If:</h4>
-          <ul className="space-y-2">
-            <li className="flex items-start">
-              <div className="text-green-600 mr-2 mt-1">✓</div>
-              <p className="text-sm">Your financial situation is complex (multiple income sources, business interests, significant assets)</p>
-            </li>
-            <li className="flex items-start">
-              <div className="text-green-600 mr-2 mt-1">✓</div>
-              <p className="text-sm">You're approaching or already in retirement and need income planning</p>
-            </li>
-            <li className="flex items-start">
-              <div className="text-green-600 mr-2 mt-1">✓</div>
-              <p className="text-sm">You have substantial tax planning opportunities</p>
-            </li>
-            <li className="flex items-start">
-              <div className="text-green-600 mr-2 mt-1">✓</div>
-              <p className="text-sm">You need estate planning coordination for wealth transfer</p>
-            </li>
-            <li className="flex items-start">
-              <div className="text-green-600 mr-2 mt-1">✓</div>
-              <p className="text-sm">You value expert guidance during market volatility</p>
-            </li>
-            <li className="flex items-start">
-              <div className="text-green-600 mr-2 mt-1">✓</div>
-              <p className="text-sm">You prefer to delegate financial management to focus on other priorities</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <p className="text-center text-sm italic">Note: These are general guidelines. Your specific situation may have unique factors that influence your financial management decisions.</p>
-    </div>
-    
     <div className="bg-teal-50 border-l-4 border-teal-500 p-6 rounded-md italic mb-6">
       <p>In conclusion, while a 1% AUM fee represents a significant expense, for many high-net-worth individuals, retirees, and busy professionals, the comprehensive expertise, personalized guidance, and peace of mind provided by professional wealth management creates value well beyond this cost. As with most professional services, the true value isn't just in the transactions handled but in the problems avoided, the opportunities identified, and the confidence created through expert guidance.</p>
       <p className="mt-4">The key is finding the right wealth management relationship – one where the advisor truly understands your unique situation, demonstrates relevant expertise, communicates clearly, and consistently delivers tangible value that exceeds the fee paid. When this partnership works well, the benefits extend far beyond your portfolio's performance to encompass your overall financial well-being and peace of mind.</p>
@@ -142,21 +102,13 @@ const ConclusionPage = () => (
         <div className="flex items-start">
           <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold mr-3 flex-shrink-0">3</div>
           <div>
-            <h4 className="font-bold text-blue-700 mb-1">Interview Multiple Advisors</h4>
-            <p className="text-sm">Meet with several potential advisors to compare approaches, expertise, and personal compatibility. Ask detailed questions about their services, investment philosophy, planning process, and fee structure.</p>
-          </div>
-        </div>
-        
-        <div className="flex items-start">
-          <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold mr-3 flex-shrink-0">4</div>
-          <div>
             <h4 className="font-bold text-blue-700 mb-1">Evaluate the Complete Value Proposition</h4>
             <p className="text-sm">When reviewing fee structures, consider the full range of services provided. A slightly higher fee may represent better value if it includes comprehensive planning versus investment-only management.</p>
           </div>
         </div>
         
         <div className="flex items-start">
-          <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold mr-3 flex-shrink-0">5</div>
+          <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold mr-3 flex-shrink-0">4</div>
           <div>
             <h4 className="font-bold text-blue-700 mb-1">Check References and Regulatory Records</h4>
             <p className="text-sm">Ask for client references and review the advisor's regulatory history through the SEC's Investment Adviser Public Disclosure website or FINRA's BrokerCheck.</p>

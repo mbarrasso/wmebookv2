@@ -27,14 +27,6 @@ const FeeConcernPage = ({ feeComparisonData, valueAddedData }) => (
           </div>
         </div>
         
-        <div className="border-l-4 border-green-500 pl-4 py-1">
-          <h4 className="font-bold text-green-700 mb-2">"1% compounds to a large amount over time – it seems excessive."</h4>
-          <div className="bg-gray-50 p-4 rounded-md">
-            <p className="mb-2">While the dollar value of a 1% fee grows with your assets, so does the complexity and value of managing those assets. Larger portfolios require more sophisticated tax and estate strategies, involve greater risk management challenges, and benefit more from advanced planning techniques.</p>
-            <p className="text-sm italic">Most firms employ tiered fee schedules to accommodate this reality, with percentage rates declining at higher asset levels.</p>
-          </div>
-        </div>
-        
         <div className="border-l-4 border-blue-500 pl-4 py-1">
           <h4 className="font-bold text-blue-700 mb-2">"I can manage my investments myself – I don't need to pay an advisor."</h4>
           <div className="bg-gray-50 p-4 rounded-md">
