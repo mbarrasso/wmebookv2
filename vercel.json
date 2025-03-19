@@ -13,5 +13,19 @@
       "destination": "/index.html"
     }
   ],
-  "public": true
+  "public": true,
+  "env": {
+    "CI": "false",
+    "NODE_ENV": "production"
+  },
+  "builds": [
+    {
+      "src": "wealth-management-ebook/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build",
+        "nodeVersion": "16.x"
+      }
+    }
+  ]
 } 
