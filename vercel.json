@@ -1,31 +1,6 @@
 {
   "version": 2,
-  "github": {
-    "silent": true,
-    "autoAlias": true
-  },
-  "buildCommand": "cd wealth-management-ebook && npm install && npm run build",
-  "outputDirectory": "wealth-management-ebook/build",
-  "framework": "create-react-app",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
   "public": true,
-  "env": {
-    "CI": "false",
-    "NODE_ENV": "production"
-  },
-  "builds": [
-    {
-      "src": "wealth-management-ebook/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build",
-        "nodeVersion": "16.x"
-      }
-    }
-  ]
+  "buildCommand": "cd wealth-management-ebook && npm install && CI=false npm run build",
+  "outputDirectory": "wealth-management-ebook/build"
 } 

@@ -11,6 +11,7 @@ import InsurancePage from './InsurancePage';
 import TaxPlanningPage from './TaxPlanningPage';
 import FeeConcernPage from './FeeConcernPage';
 import ConclusionPage from './ConclusionPage';
+import unitedLogo from '../assets/united-logo.png';
 
 const EbookViewer = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -162,7 +163,7 @@ const EbookViewer = () => {
           <div className="flex justify-center mb-8">
             <div className="w-72">
               <img 
-                src={`${process.env.PUBLIC_URL}/images/united-logo.png`}
+                src={unitedLogo}
                 alt="United Financial Planning Group, LLC" 
                 className="w-full"
               />
