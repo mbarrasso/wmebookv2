@@ -44,9 +44,9 @@ const AdvisorAlphaPage = ({ advisorAlphaData }) => (
     
     <p className="mb-4">In a separate but related approach, Morningstar researchers developed the concept of "Gamma" – which measures the increase in retirement income an investor can achieve by making optimized financial planning decisions (as opposed to just optimizing investments).</p>
     
-    <p className="mb-6">In their seminal study, Morningstar's David Blanchett and Paul Kaplan found that by combining five specific strategies, a retiree could generate 22.6% more income in retirement compared to an average strategy. This boost is equivalent to an extra 1.59% return per year for the portfolio as a whole – a significant improvement.</p>
+    <p className="mb-6">In their seminal study, Morningstar's David Blanchett and Paul Kaplan found that by combining four specific strategies, a retiree could generate 22.6% more income in retirement compared to an average strategy. This boost is equivalent to an extra 1.59% return per year for the portfolio as a whole – a significant improvement.</p>
     
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
       <div className="bg-blue-50 p-4 rounded-lg border-t-4 border-blue-600">
         <div className="bg-blue-600 h-8 w-8 rounded-full flex items-center justify-center text-white font-bold mb-2 mx-auto">1</div>
         <h5 className="font-bold text-center mb-2">Total-Wealth Asset Allocation</h5>
@@ -58,23 +58,17 @@ const AdvisorAlphaPage = ({ advisorAlphaData }) => (
         <h5 className="font-bold text-center mb-2">Dynamic Withdrawal Strategy</h5>
         <p className="text-sm text-center">Adjusting withdrawals based on market performance and life expectancy</p>
       </div>
-      
-      <div className="bg-orange-50 p-4 rounded-lg border-t-4 border-orange-500">
-        <div className="bg-orange-500 h-8 w-8 rounded-full flex items-center justify-center text-white font-bold mb-2 mx-auto">3</div>
-        <h5 className="font-bold text-center mb-2">Annuity Allocation</h5>
-        <p className="text-sm text-center">Incorporating annuities to secure higher guaranteed income</p>
-      </div>
     </div>
     
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
       <div className="bg-purple-50 p-4 rounded-lg border-t-4 border-purple-600">
-        <div className="bg-purple-600 h-8 w-8 rounded-full flex items-center justify-center text-white font-bold mb-2 mx-auto">4</div>
+        <div className="bg-purple-600 h-8 w-8 rounded-full flex items-center justify-center text-white font-bold mb-2 mx-auto">3</div>
         <h5 className="font-bold text-center mb-2">Tax-Efficient Withdrawals</h5>
         <p className="text-sm text-center">Optimizing which accounts to draw from and when</p>
       </div>
       
       <div className="bg-indigo-50 p-4 rounded-lg border-t-4 border-indigo-600">
-        <div className="bg-indigo-600 h-8 w-8 rounded-full flex items-center justify-center text-white font-bold mb-2 mx-auto">5</div>
+        <div className="bg-indigo-600 h-8 w-8 rounded-full flex items-center justify-center text-white font-bold mb-2 mx-auto">4</div>
         <h5 className="font-bold text-center mb-2">Liability-Relative Optimization</h5>
         <p className="text-sm text-center">Tailoring asset allocation to specific needs and risk factors</p>
       </div>
