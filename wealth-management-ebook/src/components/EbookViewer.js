@@ -162,7 +162,7 @@ const EbookViewer = () => {
           <div className="flex justify-center mb-8">
             <div className="w-72">
               <img 
-                src="/images/united-logo.png" 
+                src={`${process.env.PUBLIC_URL}/images/united-logo.png`}
                 alt="United Financial Planning Group, LLC" 
                 className="w-full"
               />
