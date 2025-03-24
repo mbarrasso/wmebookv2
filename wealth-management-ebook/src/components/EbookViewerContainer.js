@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import EbookViewer from './EbookViewer';
 import IntegratedWealthEbook from './IntegratedWealthEbook';
+import InteractiveRetirementEbook from './InteractiveRetirementEbook';
 import ebooks from '../data/ebooks';
 
 const EbookViewerContainer = () => {
@@ -61,9 +62,13 @@ const EbookViewerContainer = () => {
     );
   }
 
-  // Return the specialized component for the integrated tax planning eBook
+  // Return the specialized component for specific eBooks
   if (ebookId === 'integrated-tax-planning') {
     return <IntegratedWealthEbook />;
+  }
+  
+  if (ebookId === 'investors-guide-retirement') {
+    return <InteractiveRetirementEbook />;
   }
 
   // For all other eBooks, use the standard viewer
