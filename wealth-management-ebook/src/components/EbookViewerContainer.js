@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import EbookViewer from './EbookViewer';
+import IntegratedWealthEbook from './IntegratedWealthEbook';
 import ebooks from '../data/ebooks';
 
 const EbookViewerContainer = () => {
@@ -60,6 +61,12 @@ const EbookViewerContainer = () => {
     );
   }
 
+  // Return the specialized component for the integrated tax planning eBook
+  if (ebookId === 'integrated-tax-planning') {
+    return <IntegratedWealthEbook />;
+  }
+
+  // For all other eBooks, use the standard viewer
   return <EbookViewer ebook={selectedEbook} />;
 };
 

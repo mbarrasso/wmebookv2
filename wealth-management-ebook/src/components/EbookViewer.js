@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, AreaChart, Area } from 'recharts';
-import { ChevronRight, ChevronLeft, DollarSign, TrendingUp, Shield, Briefcase, Users, BarChart2, Gift, Check, AlertTriangle } from 'lucide-react';
+import { ChevronRight, ChevronLeft, DollarSign, TrendingUp, Shield, Briefcase, Users, BarChart2, Gift, Check, AlertTriangle, Menu, BookOpen, Home } from 'lucide-react';
 import AdvisorAlphaPage from './AdvisorAlphaPage';
 import BeyondInvestmentPage from './BeyondInvestmentPage';
 import TaxEfficientPage from './TaxEfficientPage';
@@ -42,6 +42,11 @@ const EbookViewer = ({ ebook }) => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1);
     }
+  };
+
+  const goToHome = () => {
+    setCurrentPage(0);
+    setIsMenuOpen(false);
   };
 
   // Sample data for charts
@@ -270,64 +275,82 @@ const EbookViewer = ({ ebook }) => {
   const pageComponent = getPageComponentForSection(currentSectionId);
 
   return (
-    <div className="bg-gray-100 min-h-screen pb-16">
-      {/* Side navigation for table of contents */}
-      <div className={`fixed top-0 left-0 h-full w-64 bg-white shadow-md transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out z-30`}>
-        <div className="p-4 border-b">
-          <h3 className="text-lg font-bold text-blue-900">Table of Contents</h3>
+    <div className="flex flex-col h-screen bg-white">
+      {/* Top navigation bar */}
+      <div className="bg-blue-800 text-white px-4 py-3 flex justify-between items-center">
+        <div className="flex items-center space-x-4">
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-1 rounded-md hover:bg-blue-700"
+          >
+            <Menu size={24} />
+          </button>
+          <div className="flex items-center">
+            <BookOpen size={20} className="mr-2" />
+            <span className="font-semibold">{ebook.title}</span>
+          </div>
         </div>
-        <div className="p-4 overflow-y-auto h-full">
-          <ul className="space-y-2">
-            {sections.map((section, index) => (
-              <li key={section.id}>
-                <button 
-                  onClick={() => navigateTo(index)}
-                  className={`w-full text-left px-2 py-1.5 rounded ${currentPage === index ? 'bg-blue-100 text-blue-700 font-medium' : 'hover:bg-gray-100'}`}
-                >
-                  {section.title}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* Menu toggle button */}
-      <button 
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="fixed top-4 left-4 z-40 bg-blue-700 text-white p-2 rounded-md shadow focus:outline-none hover:bg-blue-600 transition duration-300"
-      >
-        {isMenuOpen ? 'Close Menu' : 'Contents'}
-      </button>
-
-      {/* Main content */}
-      <div className="mt-16">
-        {pageComponent}
-      </div>
-
-      {/* Navigation controls */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white py-3 px-6 flex justify-between shadow-lg z-20">
-        <button 
-          onClick={prevPage}
-          disabled={currentPage === 0}
-          className={`flex items-center space-x-1 py-2 px-4 rounded-md ${currentPage === 0 ? 'bg-gray-200 text-gray-500 cursor-not-allowed' : 'bg-blue-700 text-white hover:bg-blue-600'} transition duration-300`}
-        >
-          <ChevronLeft size={18} />
-          <span>Previous</span>
-        </button>
-        
-        <div className="text-gray-600 flex items-center">
+        <div className="text-sm">
           Page {currentPage + 1} of {sections.length}
         </div>
+      </div>
+      
+      {/* Main content area with sidebar */}
+      <div className="flex flex-1 overflow-hidden">
+        {/* Table of Contents Sidebar */}
+        {isMenuOpen && (
+          <div className="w-64 bg-gray-100 p-4 overflow-y-auto">
+            <h3 className="font-bold text-lg mb-4 text-blue-800">Table of Contents</h3>
+            <ul className="space-y-2">
+              {sections.map((section, index) => (
+                <li key={section.id}>
+                  <button
+                    onClick={() => navigateTo(index)}
+                    className={`w-full text-left px-3 py-2 rounded-md ${currentPage === index ? 'bg-blue-100 text-blue-800' : 'hover:bg-gray-200'}`}
+                  >
+                    {section.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         
-        <button 
-          onClick={nextPage}
-          disabled={currentPage === sections.length - 1}
-          className={`flex items-center space-x-1 py-2 px-4 rounded-md ${currentPage === sections.length - 1 ? 'bg-gray-200 text-gray-500 cursor-not-allowed' : 'bg-blue-700 text-white hover:bg-blue-600'} transition duration-300`}
-        >
-          <span>Next</span>
-          <ChevronRight size={18} />
-        </button>
+        {/* Main content */}
+        <div className="flex-1 flex flex-col overflow-hidden">
+          <div className="flex-1 overflow-y-auto">
+            {pageComponent}
+          </div>
+          
+          {/* Bottom navigation controls */}
+          <div className="p-4 border-t flex justify-between">
+            <button
+              onClick={prevPage}
+              disabled={currentPage === 0}
+              className={`flex items-center px-4 py-2 rounded-md ${currentPage === 0 ? 'text-gray-400 cursor-not-allowed' : 'bg-blue-100 text-blue-800 hover:bg-blue-200'}`}
+            >
+              <ChevronLeft size={20} className="mr-1" />
+              Previous
+            </button>
+            
+            <button
+              onClick={goToHome}
+              className="flex items-center px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200"
+            >
+              <Home size={20} className="mr-1" />
+              Home
+            </button>
+            
+            <button
+              onClick={nextPage}
+              disabled={currentPage === sections.length - 1}
+              className={`flex items-center px-4 py-2 rounded-md ${currentPage === sections.length - 1 ? 'text-gray-400 cursor-not-allowed' : 'bg-blue-100 text-blue-800 hover:bg-blue-200'}`}
+            >
+              Next
+              <ChevronRight size={20} className="ml-1" />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -22,6 +22,23 @@ const ebooks = [
     published: true,
     publishedDate: "2023-03-15"
   },
+  {
+    id: "integrated-tax-planning",
+    title: "Integrated Tax Planning & Wealth Management",
+    subtitle: "The Often-Overlooked Wealth Multiplier",
+    coverImage: require('../assets/united-logo.png'),
+    sections: [
+      { id: "cover", title: "Cover" },
+      { id: "intro", title: "Executive Summary" },
+      { id: "hidden-costs", title: "The Hidden Cost of Fragmented Advice" },
+      { id: "tax-management", title: "Strategic Tax Management" },
+      { id: "client-profiles", title: "Tailored Client Solutions" },
+      { id: "case-studies", title: "Real-World Results" },
+      { id: "next-steps", title: "Taking the Next Step" }
+    ],
+    published: true,
+    publishedDate: "2023-11-15"
+  },
   // Example of a second ebook that could be added
   {
     id: "retirement-strategies",

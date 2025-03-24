@@ -44,23 +44,6 @@ const EbookLibrary = () => {
               </div>
             </div>
           ))}
-
-          {/* Admin card for adding new ebooks - in a real app this would be protected */}
-          <div className="bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-8 text-center">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold text-blue-800 mb-2">Add New eBook</h3>
-            <p className="text-gray-600 mb-4 text-sm">Create and publish a new eBook to the library</p>
-            <Link 
-              to="/admin/new-ebook"
-              className="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-md shadow transition duration-300"
-            >
-              Create eBook
-            </Link>
-          </div>
         </div>
       </div>
     </div>
