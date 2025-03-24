@@ -13,7 +13,7 @@ import FeeConcernPage from './FeeConcernPage';
 import ConclusionPage from './ConclusionPage';
 import unitedLogo from '../assets/united-logo.png';
 
-const EbookViewer = () => {
+const EbookViewer = ({ ebook }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
@@ -25,20 +25,7 @@ const EbookViewer = () => {
     scrollToTop();
   }, [currentPage]);
 
-  const sections = [
-    { id: "cover", title: "Cover" },
-    { id: "introduction", title: "Introduction" },
-    { id: "advisor-alpha", title: "Advisor Alpha" },
-    { id: "beyond-investment", title: "Beyond Investment" },
-    { id: "tax-efficient", title: "Tax-Efficient Investing" },
-    { id: "retirement", title: "Retirement Planning" },
-    { id: "behavioral", title: "Behavioral Coaching" },
-    { id: "estate", title: "Estate Planning" },
-    { id: "tax-planning", title: "Tax Planning" },
-    { id: "insurance", title: "Insurance & Risk Management" },
-    { id: "fee-concern", title: "Addressing Fee Concerns" },
-    { id: "conclusion", title: "Conclusion" }
-  ];
+  const sections = ebook ? ebook.sections : [];
 
   const navigateTo = (index) => {
     setCurrentPage(index);
@@ -163,19 +150,19 @@ const EbookViewer = () => {
           <div className="flex justify-center mb-8">
             <div className="w-72">
               <img 
-                src={unitedLogo}
-                alt="United Financial Planning Group, LLC" 
+                src={ebook.coverImage} 
+                alt={ebook.title} 
                 className="w-full"
               />
             </div>
           </div>
 
           <h1 className="text-3xl md:text-5xl font-bold text-center text-blue-900 mb-6">
-            The Value Of Wealth Management
+            {ebook.title}
           </h1>
           
           <h2 className="text-xl md:text-2xl text-center text-blue-700 mb-8">
-            Why paying for professional wealth management can be well worth it for high-net-worth individuals, retirees, and high-earning professionals.
+            {ebook.subtitle}
           </h2>
           
           <div className="bg-gray-100 rounded-lg p-4 mb-8">
@@ -235,24 +222,52 @@ const EbookViewer = () => {
     </div>
   );
 
-  const pageComponents = [
-    renderCoverPage(),
-    renderIntroductionPage(),
-    <AdvisorAlphaPage advisorAlphaData={advisorAlphaData} />,
-    <BeyondInvestmentPage />,
-    <TaxEfficientPage taxEfficientData={taxEfficientData} />,
-    <RetirementPlanningPage 
-      retirementProjectionData={retirementProjectionData} 
-      incomeSourcesData={incomeSourcesData} 
-      withdrawalRatesData={withdrawalRatesData} 
-    />,
-    <BehavioralCoachingPage behaviorGapData={behaviorGapData} />,
-    <EstatePlanningPage estateDistributionData={estateDistributionData} />,
-    <TaxPlanningPage taxSavingsData={taxSavingsData} taxDeferralData={taxDeferralData} />,
-    <InsurancePage insuranceGapData={insuranceGapData} />,
-    <FeeConcernPage feeComparisonData={feeComparisonData} valueAddedData={valueAddedData} />,
-    <ConclusionPage />
-  ];
+  // Mapping section IDs to component pages
+  const getPageComponentForSection = (sectionId) => {
+    const componentMap = {
+      'cover': renderCoverPage(),
+      'introduction': renderIntroductionPage(),
+      'advisor-alpha': <AdvisorAlphaPage advisorAlphaData={advisorAlphaData} />,
+      'beyond-investment': <BeyondInvestmentPage />,
+      'tax-efficient': <TaxEfficientPage taxEfficientData={taxEfficientData} />,
+      'retirement': <RetirementPlanningPage 
+                      retirementProjectionData={retirementProjectionData} 
+                      incomeSourcesData={incomeSourcesData} 
+                      withdrawalRatesData={withdrawalRatesData} 
+                    />,
+      'behavioral': <BehavioralCoachingPage behaviorGapData={behaviorGapData} />,
+      'estate': <EstatePlanningPage estateDistributionData={estateDistributionData} />,
+      'tax-planning': <TaxPlanningPage taxSavingsData={taxSavingsData} taxDeferralData={taxDeferralData} />,
+      'insurance': <InsurancePage insuranceGapData={insuranceGapData} />,
+      'fee-concern': <FeeConcernPage feeComparisonData={feeComparisonData} valueAddedData={valueAddedData} />,
+      'conclusion': <ConclusionPage />
+    };
+    
+    // If the section exists in our component map, return it
+    // Otherwise return a generic page
+    if (sectionId && componentMap[sectionId]) {
+      return componentMap[sectionId];
+    }
+    
+    // Generic page for sections without a specific component
+    return (
+      <div className="max-w-4xl mx-auto p-4 md:p-8">
+        <h2 className="text-3xl font-bold text-blue-900 border-b-2 border-blue-700 pb-2 mb-6">
+          {sections[currentPage]?.title || 'Section'}
+        </h2>
+        <p className="mb-6">This section is under development.</p>
+      </div>
+    );
+  };
+
+  // Check if ebook is loaded
+  if (!ebook) return null;
+
+  // Get the current section ID
+  const currentSectionId = currentPage < sections.length ? sections[currentPage].id : null;
+  
+  // Get the component to render for the current section
+  const pageComponent = getPageComponentForSection(currentSectionId);
 
   return (
     <div className="bg-gray-100 min-h-screen pb-16">
@@ -287,7 +302,7 @@ const EbookViewer = () => {
 
       {/* Main content */}
       <div className="mt-16">
-        {pageComponents[currentPage]}
+        {pageComponent}
       </div>
 
       {/* Navigation controls */}
